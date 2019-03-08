@@ -22,7 +22,7 @@ public class BGThread extends Thread {
 	public void run() {
 		while (true) {
 			try {
-				sleep(1000);
+				sleep(1010);
 				List<Information> data = timeService.getTSEntries();
 				for (Information infoObj : data) {
 					long currentTime = System.currentTimeMillis();
