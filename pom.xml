@@ -5,10 +5,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ch.fhnw</groupId>
-	<artifactId>RasperryPIProject_Fischermen</artifactId>
+	<artifactId>RasperryPIProject_A-TEAM</artifactId>
 	<version>1.0-SNAPSHO</version>
 	<packaging>war</packaging>
-	<name>RasperryPIProject_Fischermen</name>
+	<name>RasperryPIProject_A-TEAM</name>
 
 	<repositories>
 		<repository>
@@ -37,7 +37,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>RasperryPIProject_Fischermen</finalName>
+		<finalName>RasperryPIProject_A-TEAM</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
