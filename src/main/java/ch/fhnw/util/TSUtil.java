@@ -8,7 +8,12 @@ import java.util.Date;
  * @author David Herzig
  */
 public class TSUtil {
-    
+	/**
+	 * Wandelt einen Zeitstempel in ein lesbares Format um
+	 */
+	
+	
+	
     public static String convertTimeStamp(long timestamp) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String result  = dateFormat.format(new Date(timestamp));
