@@ -9,9 +9,15 @@ import java.util.Date;
  */
 public class TSUtil {
     
-    public static String convertTimeStamp(long timestamp) {
+	/**
+	 * This function returns the timestamp in a human readable format
+	 * @param timestamp	in miliseconds
+	 * @return	Human readable Date and Time
+	 */
+	public static String convertTimeStamp(long timestamp) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String result  = dateFormat.format(new Date(timestamp));
+        assert !result.isEmpty() : "KeinResultat_GAGA";
         return result;
     }
     
