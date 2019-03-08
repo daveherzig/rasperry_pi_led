@@ -35,7 +35,7 @@ public class BGThread extends Thread {
 						GpioPinDigitalOutput pin = null;
 						System.out.println("setup pi system...");
 						gpio = GpioFactory.getInstance();
-						pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06, "MyLED", PinState.HIGH);
+						pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02, "MyLED", PinState.HIGH);
 						pin.setShutdownOptions(true, PinState.LOW);
 						System.out.println("switch on...");
 						sleep(5000);
