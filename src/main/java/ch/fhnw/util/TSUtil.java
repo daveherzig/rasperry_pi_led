@@ -19,6 +19,7 @@ public class TSUtil {
         String timeStr = year + "-" + month + "-" + day + ":" + hour + "-" + minute + "-" + second;
         System.out.println(timeStr);
         Date result;
+        assert !timeStr.isEmpty();
         try {
             result = new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss").parse(timeStr);
         } catch (ParseException ex) {
@@ -26,4 +27,5 @@ public class TSUtil {
         }
         return result.getTime();
     }
+    
 }

@@ -35,8 +35,7 @@ public class AddTimestampServlet extends HttpServlet {
         String day = req.getParameter("day");
         String hour = req.getParameter("hour");
         String minute = req.getParameter("minute");
-        String second = req.getParameter("second");
-        
+        String second = req.getParameter("second");   
         long ts = TSUtil.getTimeStamp(year, month, day, hour, minute, second);
         if (ts != -1) {
         	tService.addTSEntry(ts);
