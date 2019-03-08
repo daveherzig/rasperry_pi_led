@@ -1,8 +1,10 @@
 package ch.fhnw.util;
 
+import org.junit.Test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import junit.framework.Assert;
 
 /**
  * @author David Herzig
@@ -12,6 +14,9 @@ public class TSUtil {
     public static String convertTimeStamp(long timestamp) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String result  = dateFormat.format(new Date(timestamp));
+        
+        Assert.assertEquals(8,8);
+        
         return result;
     }
     
