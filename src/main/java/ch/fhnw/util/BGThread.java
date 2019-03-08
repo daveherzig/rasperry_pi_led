@@ -18,7 +18,11 @@ public class BGThread extends Thread {
 	public BGThread(TimeService timeService) {
 		this.timeService = timeService;
 	}
-
+	
+	/**
+	 * HauptThread. Prueft jede Sekunde, ob eine konfigurierte Zeit erreicht wurde. 
+	 * Anschliessend wird ein Pin des Raspberry angesteuert.
+	 */
 	public void run() {
 		while (true) {
 			try {
