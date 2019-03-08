@@ -7,21 +7,23 @@ import junit.framework.Assert;
 public class TSUtilTest {
 	@Test
 	public void testConvertTimestamp () {
+		int numTests = 3;
+		
 		long[] arrTimeStamp;
-		arrTimeStamp = new long[3];
+		arrTimeStamp = new long[numTests];
 		String[] arrExpected;
-		arrExpected = new String[3];
+		arrExpected = new String[numTests];
 		String[] arrActual;
-		arrActual = new String[3];
+		arrActual = new String[numTests];
 		
 		arrTimeStamp[0] = 1552062128688l;
 		arrTimeStamp[1] = 1l;
 		arrTimeStamp[2] = 9999999999999l;
 		arrExpected[0] = "08-03-2019 17:22:08";
 		arrExpected[1] = "01-01-1970 01:00:00";
-		arrExpected[2] = "05-20-318857 05:46:39";
+		arrExpected[2] = "20-11-2286 18:46:39";
 		
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < numTests; i++) {
 			arrActual[i] = TSUtil.convertTimeStamp(arrTimeStamp[i]);
 			Assert.assertEquals(arrExpected[i], arrActual[i]);
 		}		
@@ -29,7 +31,7 @@ public class TSUtilTest {
 	
 	@Test
 	public void testGetTimeStamp () {
-		int numTests = 1;
+		int numTests = 2;
 		String[] arrInputYear;
 		arrInputYear = new String[numTests];
 		String[] arrInputMonth;
@@ -55,6 +57,14 @@ public class TSUtilTest {
 		arrInputMinute[0] = "00";
 		arrInputSecond[0] = "01";
 		arrTimeStampExpected[0] = 1000l;
+		
+		arrInputYear[1] = "abcd";
+		arrInputMonth[1] = "ef";
+		arrInputDay[1] = "gh";
+		arrInputHour[1] = "ij";
+		arrInputMinute[1] = "kl";
+		arrInputSecond[1] = "mn";
+		arrTimeStampExpected[1] = -1;
 		
 		for (int i = 0; i < numTests; i++) {
 			arrTimeStampActual[i] = TSUtil.getTimeStamp(arrInputYear[i], arrInputMonth[i], arrInputDay[i], arrInputHour[i], arrInputMinute[i], arrInputSecond[i]);
