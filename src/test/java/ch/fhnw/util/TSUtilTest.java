@@ -26,4 +26,39 @@ public class TSUtilTest {
 			Assert.assertEquals(arrExpected[i], arrActual[i]);
 		}		
 	}
+	
+	@Test
+	public void testGetTimeStamp () {
+		int numTests = 1;
+		String[] arrInputYear;
+		arrInputYear = new String[numTests];
+		String[] arrInputMonth;
+		arrInputMonth = new String[numTests];
+		String[] arrInputDay;
+		arrInputDay = new String[numTests];
+		String[] arrInputHour;
+		arrInputHour = new String[numTests];
+		String[] arrInputMinute;
+		arrInputMinute = new String[numTests];
+		String[] arrInputSecond;
+		arrInputSecond = new String[numTests];
+		
+		long[] arrTimeStampExpected;
+		arrTimeStampExpected = new long[numTests];
+		long[] arrTimeStampActual;
+		arrTimeStampActual = new long[numTests];
+
+		arrInputYear[0] = "1970";
+		arrInputMonth[0] = "01";
+		arrInputDay[0] = "01";
+		arrInputHour[0] = "01";
+		arrInputMinute[0] = "00";
+		arrInputSecond[0] = "01";
+		arrTimeStampExpected[0] = 1000l;
+		
+		for (int i = 0; i < numTests; i++) {
+			arrTimeStampActual[i] = TSUtil.getTimeStamp(arrInputYear[i], arrInputMonth[i], arrInputDay[i], arrInputHour[i], arrInputMinute[i], arrInputSecond[i]);
+			Assert.assertEquals(arrTimeStampExpected[i], arrTimeStampActual[i]);
+		}
+	}
 }
