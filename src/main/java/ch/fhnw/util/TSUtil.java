@@ -34,6 +34,7 @@ public class TSUtil {
     public static long getTimeStamp(String year, String month, String day, String hour, String minute, String second) {
         String timeStr = year + "-" + month + "-" + day + ":" + hour + "-" + minute + "-" + second;
         System.out.println(timeStr);
+        assert !timeStr.isEmpty();
         Date result;
         try {
             result = new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss").parse(timeStr);
