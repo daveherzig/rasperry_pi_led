@@ -5,10 +5,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ch.fhnw</groupId>
-	<artifactId>RasperryPIProject_TEAMNAME</artifactId>
+	<artifactId>RasperryPIProject_SoftwareNoobies</artifactId>
 	<version>1.0-SNAPSHO</version>
 	<packaging>war</packaging>
-	<name>RasperryPIProject_TEAMNAME</name>
+	<name>RasperryPIProject_SoftwareNoobies</name>
 
 	<repositories>
 		<repository>
@@ -37,7 +37,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>RasperryPIProject_TEAMNAME</finalName>
+		<finalName>RasperryPIProject_SoftwareNoobies</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
