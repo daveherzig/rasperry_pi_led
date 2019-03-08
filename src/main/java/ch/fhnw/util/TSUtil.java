@@ -19,11 +19,16 @@ public class TSUtil {
         String timeStr = year + "-" + month + "-" + day + ":" + hour + "-" + minute + "-" + second;
         System.out.println(timeStr);
         Date result;
+        assert !timeStr.isEmpty();
         try {
             result = new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss").parse(timeStr);
         } catch (ParseException ex) {
             return -1;
         }
         return result.getTime();
+    }
+    
+    public static void main(String [] args) {
+    	System.out.println(getTimeStamp("2019", "03", "08", "19", "30", "00"));
     }
 }
