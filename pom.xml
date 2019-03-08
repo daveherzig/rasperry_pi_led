@@ -6,7 +6,7 @@
 
 	<groupId>ch.fhnw</groupId>
 	<artifactId>RasperryPIProject_TEAMNAME</artifactId>
-	<version>1.0-SNAPSHO</version>
+	<version>1.0-SNAPSHOP</version>
 	<packaging>war</packaging>
 	<name>RasperryPIProject_TEAMNAME</name>
 
