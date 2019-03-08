@@ -8,6 +8,10 @@ import java.util.Date;
  * @author David Herzig
  */
 public class TSUtil {
+	
+	public static void main(String [] args) {
+		
+	}
     
     public static String convertTimeStamp(long timestamp) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -18,6 +22,7 @@ public class TSUtil {
     public static long getTimeStamp(String year, String month, String day, String hour, String minute, String second) {
         String timeStr = year + "-" + month + "-" + day + ":" + hour + "-" + minute + "-" + second;
         System.out.println(timeStr);
+        assert !timeStr.isEmpty();
         Date result;
         try {
             result = new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss").parse(timeStr);
