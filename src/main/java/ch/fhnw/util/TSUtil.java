@@ -41,7 +41,6 @@ public class TSUtil {
         } catch (ParseException ex) {
             return -1;
         }
-        assert !result.isEmpty();
         return result.getTime();
     }
 }
