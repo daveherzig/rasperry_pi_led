@@ -11,6 +11,12 @@ import junit.framework.Assert;
  */
 public class TSUtil {
     
+	//Test
+	//public static void main(String[] args) {
+	//	getTimeStamp("2019", "03","09","08","47","00");
+	//}
+	
+	
     public static String convertTimeStamp(long timestamp) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String result  = dateFormat.format(new Date(timestamp));       
@@ -19,10 +25,12 @@ public class TSUtil {
     
     public static long getTimeStamp(String year, String month, String day, String hour, String minute, String second) {
         String timeStr = year + "-" + month + "-" + day + ":" + hour + "-" + minute + "-" + second;
+        //String timeStr = day + "-" + month + "-" + year + " um " + hour + ":" + minute + ":" + second;
         System.out.println(timeStr);
         Date result;
         try {
             result = new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss").parse(timeStr);
+            //result = new SimpleDateFormat("dd-MM-yyyy um HH:mm:ss").parse(timeStr);
         } catch (ParseException ex) {
             return -1;
         }
