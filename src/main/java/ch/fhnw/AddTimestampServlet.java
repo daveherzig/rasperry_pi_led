@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  *
  * @author David Herzig
@@ -24,6 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 )
 public class AddTimestampServlet extends HttpServlet {
     
+	private static final Logger LOG = LogManager.getLogger(AddTimestampServlet.class);
+	
     private TimeService tService = new TimeService();
     private BGThread bgThread = new BGThread(tService);
     
@@ -38,6 +43,9 @@ public class AddTimestampServlet extends HttpServlet {
         String second = req.getParameter("second");
         
         long ts = TSUtil.getTimeStamp(year, month, day, hour, minute, second);
+        //do some logging
+        LOG.debug("TeamHanlding: received Date: "+year+"."+month+"."+day+" "+hour+":"+minute+":"+second);
+        
         if (ts != -1) {
         	tService.addTSEntry(ts);
         	
