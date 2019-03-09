@@ -44,7 +44,7 @@ public class AddTimestampServlet extends HttpServlet {
         
         long ts = TSUtil.getTimeStamp(year, month, day, hour, minute, second);
         //do some logging
-        LOG.debug("TeamHanlding: received Date: "+year+"."+month+"."+day+" "+hour+":"+minute+":"+second);
+        LOG.info("TeamHanlding: received Date: "+year+"."+month+"."+day+" "+hour+":"+minute+":"+second);
         
         if (ts != -1) {
         	tService.addTSEntry(ts);
