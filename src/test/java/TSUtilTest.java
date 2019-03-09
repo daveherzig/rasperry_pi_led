@@ -1,8 +1,8 @@
 //package rasperry_pi_led_2;
 
+import org.junit.Assert;
 import org.junit.Test;
 import ch.fhnw.util.TSUtil;
-import junit.framework.Assert;
 
 @SuppressWarnings("deprecation")
 public class TSUtilTest {

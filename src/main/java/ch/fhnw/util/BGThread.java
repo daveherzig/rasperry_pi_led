@@ -33,7 +33,7 @@ public class BGThread extends Thread {
 				List<Information> data = timeService.getTSEntries();
 				for (Information infoObj : data) {
 					long currentTime = System.currentTimeMillis();
-					LOG.debug("Compare: current time" + currentTime + "," + infoObj.getTimestamp());
+					//LOG.debug("Compare: current time" + currentTime + "," + infoObj.getTimestamp());
 					if (infoObj.getTimestamp() < currentTime + 500 && infoObj.getTimestamp() > currentTime - 500) {
 						// do something
 						System.out.println("do something..." + infoObj.getTimestamp() + ":"
@@ -44,7 +44,7 @@ public class BGThread extends Thread {
 						System.out.println("setup pi system...");
 						gpio = GpioFactory.getInstance();
 						pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02, "MyLED", PinState.HIGH);
-						LOG.debug("Led Pin 2 turned on");
+				//		LOG.debug("Led Pin 2 turned on");
 						pin.setShutdownOptions(true, PinState.LOW);
 						System.out.println("switch on...");
 						sleep(5000);
@@ -56,7 +56,7 @@ public class BGThread extends Thread {
 					}
 				}
 			} catch (Exception ex) {
-				LOG.error("Could not access GPIO system", ex);
+			//	LOG.error("Could not access GPIO system", ex);
 			}
 
 		}

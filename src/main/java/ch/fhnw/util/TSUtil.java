@@ -1,10 +1,8 @@
 package ch.fhnw.util;
 
-import org.junit.Test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import junit.framework.Assert;
 
 /**
  * Auxiliary methods for time conversion

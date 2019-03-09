@@ -12,8 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 
 /**
@@ -30,12 +28,12 @@ public class AddTimestampServlet extends HttpServlet {
     private TimeService tService = new TimeService();
     private BGThread bgThread = new BGThread(tService);
     
-    private static final Logger LOG = LogManager.getLogger(BGThread.class);
+    //private static final Logger LOG = LogManager.getLogger(BGThread.class);
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    	LOG.info("Retrieved call from:" + req.getRemoteAddr());
+    	//LOG.info("Retrieved call from:" + req.getRemoteAddr());
     	
         String year = req.getParameter("year");
         String month = req.getParameter("month");
@@ -45,11 +43,11 @@ public class AddTimestampServlet extends HttpServlet {
         String second = req.getParameter("second");
         
         if (year !=null && year.trim().isEmpty()) {
-        	LOG.warn("Wrong date provided...");
+        	//LOG.warn("Wrong date provided...");
         		return;
            }
         
-        LOG.info("Time added:" + year + "-" + month + "-" + day + ":" + hour + "-" + minute + "-" + second);
+        //LOG.info("Time added:" + year + "-" + month + "-" + day + ":" + hour + "-" + minute + "-" + second);
         
         long ts = TSUtil.getTimeStamp(year, month, day, hour, minute, second);
         if (ts != -1) {
