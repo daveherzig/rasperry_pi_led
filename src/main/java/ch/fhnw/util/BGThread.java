@@ -2,6 +2,9 @@ package ch.fhnw.util;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
@@ -14,11 +17,16 @@ import ch.fhnw.model.Information;
 public class BGThread extends Thread {
 
 	private TimeService timeService;
+	private static final Logger LOG = LogManager.getLogger(BGThread.class);
 
 	public BGThread(TimeService timeService) {
 		this.timeService = timeService;
 	}
-
+	
+	/**
+	 * HauptThread. Prueft jede Sekunde, ob eine konfigurierte Zeit erreicht wurde. 
+	 * Anschliessend wird ein Pin des Raspberry angesteuert.
+	 */
 	public void run() {
 		while (true) {
 			try {
@@ -42,6 +50,7 @@ public class BGThread extends Thread {
 						System.out.println("shutdown pi system...");
 						pin.toggle();
 						gpio.shutdown();
+						LOG.info("GPIO System Shutdown");
 						gpio.unprovisionPin(pin);
 
 					}
