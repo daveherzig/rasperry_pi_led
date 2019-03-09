@@ -3,6 +3,8 @@ package ch.fhnw.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Utility class for the Raspberry Pi LED Project
@@ -10,6 +12,8 @@ import java.util.Date;
  */
 public class TSUtil {
     
+	private static final Logger LOG = LogManager.getLogger(TSUtil.class);
+	
 	/**
 	 * Wandelt timestamp (long in ms) in ein lesbares Format (string in dd-MM-yy HH:mm:ss). 
 	 * @param timestamp
@@ -39,7 +43,8 @@ public class TSUtil {
         try {
             result = new SimpleDateFormat("yyyy-MM-dd:HH-mm-ss").parse(timeStr);
         } catch (ParseException ex) {
-            return -1;
+        	LOG.error("Invalid timestamp",ex);
+        	return -1;
         }
         return result.getTime();
     }

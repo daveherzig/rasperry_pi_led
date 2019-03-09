@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  *
  * @author David Herzig
@@ -24,18 +27,30 @@ import javax.servlet.http.HttpServletResponse;
 )
 public class AddTimestampServlet extends HttpServlet {
     
+	private static final Logger LOG = LogManager.getLogger(AddTimestampServlet.class);
+	
     private TimeService tService = new TimeService();
     private BGThread bgThread = new BGThread(tService);
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    	
+    	LOG.info("Retrieved call from: " + req.getRemoteAddr());
+    	
         String year = req.getParameter("year");
         String month = req.getParameter("month");
         String day = req.getParameter("day");
         String hour = req.getParameter("hour");
         String minute = req.getParameter("minute");
         String second = req.getParameter("second");
+        
+        if (year != null && year.trim().isEmpty()) {
+        	LOG.warn("Wrong Date proived");
+        	
+        	return;
+        }
+        
+        LOG.info("Time added: " + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
         
         long ts = TSUtil.getTimeStamp(year, month, day, hour, minute, second);
         if (ts != -1) {
