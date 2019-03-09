@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  *
  * @author David Herzig
@@ -24,6 +27,8 @@ public class AddTimestampServlet extends HttpServlet {
 	private TimeService tService = new TimeService();
 	private BGThread bgThread = new BGThread(tService);
 
+	private final static Logger LOG = LogManager.getLogger(AddTimestampServlet.class);
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -40,6 +45,8 @@ public class AddTimestampServlet extends HttpServlet {
 
 			if (!bgThread.isAlive()) {
 				System.out.println("starting thread...");
+				LOG.debug("starting thread...");
+				
 				bgThread.start();
 			}
 		}
