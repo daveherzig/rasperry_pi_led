@@ -32,12 +32,21 @@ public class AddTimestampServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		LOG.info("Retrieved call from: " + req.getRemoteAddr());
+		
 		String year = req.getParameter("year");
 		String month = req.getParameter("month");
 		String day = req.getParameter("day");
 		String hour = req.getParameter("hour");
 		String minute = req.getParameter("minute");
 		String second = req.getParameter("second");
+		
+		if (year != null && year.trim().isEmpty()) {
+			LOG.warn("wrong date provided...");
+			return;
+		}
+		
+		LOG.info("Time added: " + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
 
 		long ts = TSUtil.getTimeStamp(year, month, day, hour, minute, second);
 		if (ts != -1) {

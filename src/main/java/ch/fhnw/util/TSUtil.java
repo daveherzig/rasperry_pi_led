@@ -8,10 +8,14 @@ import java.util.Date;
  * @author David Herzig
  */
 public class TSUtil {
+	
+	public static void main(String [] args) {
+		getTimeStamp("2019", "03", "09", "08", "47", "00");
+	}
 
 	public static String convertTimeStamp(long timestamp) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-		String result = dateFormat.format(new Date(timestamp)) + "---";
+		String result = dateFormat.format(new Date(timestamp));
 		return result;
 	}
 
