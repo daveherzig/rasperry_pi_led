@@ -3,7 +3,7 @@ package ch.fhnw.util;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TSUtiltest {
+public class TSUtilTest {
 
 	@Test
 	public void testConvertTimeStamp() {
