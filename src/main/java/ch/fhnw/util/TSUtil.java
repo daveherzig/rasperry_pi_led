@@ -13,10 +13,7 @@ public class TSUtil {
     
     public static String convertTimeStamp(long timestamp) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        String result  = dateFormat.format(new Date(timestamp));
-        
-        Assert.assertEquals(8,8);
-        
+        String result  = dateFormat.format(new Date(timestamp));       
         return result;
     }
     
