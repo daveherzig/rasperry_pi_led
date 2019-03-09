@@ -2,20 +2,27 @@ package ch.fhnw.util;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
+import ch.fhnw.AddTimestampServlet;
 import ch.fhnw.TimeService;
 import ch.fhnw.model.Information;
 
 public class BGThread extends Thread {
 
+	private static final Logger LOG = LogManager.getLogger(BGThread.class);
+
 	private TimeService timeService;
 
 	public BGThread(TimeService timeService) {
+		LOG.debug("object bgthread created...");
 		this.timeService = timeService;
 	}
 
@@ -47,7 +54,7 @@ public class BGThread extends Thread {
 					}
 				}
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				LOG.error("Could not acces GPIOSystem", ex);
 			}
 
 		}
