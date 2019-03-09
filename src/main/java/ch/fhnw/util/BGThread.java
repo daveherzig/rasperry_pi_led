@@ -2,6 +2,9 @@ package ch.fhnw.util;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
@@ -13,6 +16,9 @@ import ch.fhnw.model.Information;
 
 public class BGThread extends Thread {
 
+	private static final Logger LOG = LogManager.getLogger(BGThread.class); 
+	
+	
 	private TimeService timeService;
 
 	public BGThread(TimeService timeService) {
