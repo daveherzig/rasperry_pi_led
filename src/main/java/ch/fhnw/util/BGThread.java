@@ -51,12 +51,12 @@ public class BGThread extends Thread {
 						pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyLED", PinState.HIGH);
 						LOG.info("Pin 1 einschalten");
 						pin.setShutdownOptions(true, PinState.LOW);
-						LOG.info("Pin 1 ausschalten");
 						sleep(5000);
-						LOG.info("Pi Interface ausschalten");
 						pin.toggle();
+						LOG.info("Pin 1 ausschalten");
 						gpio.shutdown();
 						gpio.unprovisionPin(pin);
+						LOG.info("GPIO Interface ausschalten");
 
 					}
 				}
